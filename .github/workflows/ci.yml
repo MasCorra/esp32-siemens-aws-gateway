@@ -1,0 +1,41 @@
+name: Firmware checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Checks on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Repository checks
+        run: ./scripts/check-repository.ps1
+      - name: Negative checks
+        run: ./tests/repository_checks.ps1
+      - name: Prepare native tests
+        run: ./scripts/prepare-environment.ps1 -NativeOnly
+      - name: Native tests
+        run: ./scripts/test-native.ps1
+      - name: Prepare ESP32 environment
+        run: ./scripts/prepare-environment.ps1
+      - name: Build default configuration
+        run: ./scripts/build-firmware.ps1
+      - name: Build dummy validation configuration
+        run: ./scripts/build-firmware.ps1 -ValidateConfiguration

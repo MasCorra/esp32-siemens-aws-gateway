@@ -1,0 +1,45 @@
+# Local analysis, editor state and generated builds
+/_analysis/
+/.build/
+.vscode/
+.idea/
+.pio/
+build/
+out/
+*.o
+*.a
+*.elf
+*.hex
+*.bin
+*.map
+
+# Device credentials: commit only secrets.h.example
+secrets.h
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# Installed libraries, IDE distributions and unrelated installation media
+/libraries/
+/arduino-ide*/
+/ISO.Tiaportal/
+/Crack/
+/Settimino_V2.0.0/
+*.iso
+*.img
+*.zip
+*.rar
+*.7z
+*.exe
+*.msi
+*.apk
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

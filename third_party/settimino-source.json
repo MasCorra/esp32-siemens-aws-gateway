@@ -1,0 +1,14 @@
+{
+  "Version": "2.0.0",
+  "Author": "Davide Nardella",
+  "License": "LGPL-3.0-or-later",
+  "Configuration": "Existing ESP32_WIFI selection, copied unchanged",
+  "Upstream": "https://sourceforge.net/projects/settimino/files/2.0.0/",
+  "Files": {
+    "Platform.h": "f179afad29497bcaf58f4ab524477b6b211a76efcb3d90cb64c33f2e69cb5e7b",
+    "Settimino.cpp": "7e25e1cab40a1021eae125bb5741ff16ad913408bb70e9725b1c3ba40b9e04d3",
+    "Settimino.h": "f65a5804b44dc0f94cb6f729c71c05b9ce923f84d1182a93cec8a33fcb028a82",
+    "library.properties": "4b3e80b8967bb16ff9650d25ddccf9a7c1b0dea606bb58aac638c12e935dac46",
+    "keywords.txt": "9a2b6c1d466db313ec1316983ee51ac3889f8c77d36ab6a304f7675b887e1d70"
+  }
+}
